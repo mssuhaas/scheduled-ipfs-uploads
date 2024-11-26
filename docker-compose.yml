@@ -1,0 +1,12 @@
+version: '3'
+services:
+  ipfs:
+    image: ipfs/go-ipfs:latest
+    volumes:
+      - ./ipfs-data:/data/ipfs
+      - ./ipfs-config:/root/.ipfs
+    ports:
+      - "4001:4001"
+      - "5001:5001"
+      - "8080:8080"
+    command: daemon --migrate=true --offline
